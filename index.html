@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenWord SPA</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1>OpenWord</h1>
+        <p class="subtitle">Search for a word definition and see results update instantly.</p>
+      </div>
+      <button id="randomBtn" type="button">Random Word</button>
+    </header>
+
+    <section class="search-panel">
+      <form id="wordForm">
+        <label for="searchInput">Enter a word</label>
+        <div class="input-row">
+          <input id="searchInput" name="word" type="search" placeholder="e.g. inspire" required />
+          <button type="submit">Lookup</button>
+        </div>
+      </form>
+      <p id="message" class="message">Type a word and press Lookup to get started.</p>
+    </section>
+
+    <section id="resultSection" class="result-section hidden">
+      <h2 id="resultWord"></h2>
+      <p class="word-phonetic" id="resultPhonetic"></p>
+      <div id="meanings"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
