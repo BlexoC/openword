@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OpenWord SPA</title>
+  <!-- SPA for spellings -->
+  <title>OpenWord SPA</title>   
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,7 +14,6 @@
         <h1>OpenWord</h1>
         <p class="subtitle">Search for a word definition and see results update instantly.</p>
       </div>
-      <button id="randomBtn" type="button">Random Word</button>
     </header>
 
     <section class="search-panel">
@@ -27,6 +27,7 @@
       <p id="message" class="message">Type a word and press Lookup to get started.</p>
     </section>
 
+    <!-- Result Section which is added through js by the innerHtml  use of id's to select and classes to style. -->
     <section id="resultSection" class="result-section hidden">
       <h2 id="resultWord"></h2>
       <p class="word-phonetic" id="resultPhonetic"></p>

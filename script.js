@@ -1,3 +1,6 @@
+
+// selected the Element by ids required in js 
+
 const wordForm = document.getElementById('wordForm');
 const searchInput = document.getElementById('searchInput');
 const message = document.getElementById('message');
@@ -5,11 +8,11 @@ const resultSection = document.getElementById('resultSection');
 const resultWord = document.getElementById('resultWord');
 const resultPhonetic = document.getElementById('resultPhonetic');
 const meaningsContainer = document.getElementById('meanings');
-const randomBtn = document.getElementById('randomBtn');
 
 const API_BASE = 'https://api.dictionaryapi.dev/api/v2/entries/en';
-const RANDOM_WORD_API = 'https://random-word-api.herokuapp.com/word?number=1';
 
+
+// Added event to the button
 wordForm.addEventListener('submit', event => {
   event.preventDefault();
   const word = searchInput.value.trim();
@@ -18,10 +21,6 @@ wordForm.addEventListener('submit', event => {
     return;
   }
   fetchAndRenderWord(word);
-});
-
-randomBtn.addEventListener('click', () => {
-  fetchRandomWord();
 });
 
 async function fetchAndRenderWord(word) {
@@ -55,26 +54,11 @@ async function fetchWordData(word) {
   }
 }
 
-async function fetchRandomWord() {
-  showMessage('Fetching a random word...');
-  hideResult();
-
-  try {
-    const response = await fetch(RANDOM_WORD_API);
-    if (!response.ok) {
-      throw new Error('Unable to retrieve a random word right now.');
-    }
-    const [randomWord] = await response.json();
-    searchInput.value = randomWord;
-    await fetchAndRenderWord(randomWord);
-  } catch (error) {
-    showMessage(error.message || 'Random word request failed.');
-  }
-}
-
 function renderDefinition(entry) {
   resultWord.textContent = entry.word;
   resultPhonetic.textContent = entry.phonetic || entry?.phonetics?.find(phonetic => phonetic.text)?.text || '';
+
+  // DOM structure which adds and manupilate the html structre and it is hidden with appears after submit event listner
 
   meaningsContainer.innerHTML = '';
   entry.meanings.forEach(meaning => {

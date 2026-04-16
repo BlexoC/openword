@@ -13,3 +13,5 @@ A small single page application that fetches word definitions from a public API 
 ## Run
 
 Open `index.html` in your browser. The application works as a static SPA without a build step.
+
+<!--  -->
